@@ -49,9 +49,9 @@
     </repositories>
     <dependencies>
         <dependency>
-            <groupId>com.github.replydev</groupId>
-            <artifactId>mcping</artifactId>
-            <version>1.0.2</version>
+            <groupId>com.github.lucaazalim</groupId>
+            <artifactId>minecraft-server-ping</artifactId>
+            <version>46ea98b</version>
         </dependency>
     </dependencies>
 </project>
