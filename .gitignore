@@ -41,5 +41,9 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
+# Visual Studio Code
 .vscode/
 .history/
+
+# Output files from Spectrum
+*.csv
