@@ -22,16 +22,17 @@ public class PeriodicPingTask implements Runnable {
 
     @Override
     public void run() {
+        var formattedServerIp = config.targetHostname() + ":" + config.targetPort();
+        var now = LocalDateTime.now();
+
         try {
             var data = MCPing.getPing(options);
-            var csvEntry = new CsvDataEntry(
-                    LocalDateTime.now(),
-                    config.targetHostname() + ":" + config.targetPort(),
-                    true,
-                    data.getPlayers().getOnline());
-            Logger.getGlobal().info(csvEntry.toString());
+            var csvEntry = new CsvDataEntry(now, formattedServerIp, true, data.getPlayers().getOnline());
+            System.out.println(csvEntry.toString());
         } catch (IOException ex) {
             Logger.getGlobal().log(Level.WARNING, "Could not ping server.", ex);
+            var csvEntry = new CsvDataEntry(now, formattedServerIp, false, 0);
+            System.out.println(csvEntry.toString());
         }
     }
 }
